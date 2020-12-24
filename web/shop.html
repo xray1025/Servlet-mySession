@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车</title>
+</head>
+<body>
+<form action="/check">
+    <h1>购物车</h1>
+    <table>
+        <tr>
+            <th>姓名</th>
+            <th>商品</th>
+        </tr>
+        <tr id="list"></tr>
+    </table>
+</form>
+<!--<form action="/logout" method="post">-->
+<!--    <button id="logout" type="button">注销</button>-->
+<!--</form>-->
+</body>
+<script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $.ajax({
+            type: 'get',
+            dataType: 'json',
+            url: "/check",
+            contentType: 'application/json',
+            success: function (data) {
+                var tbody = '<td>' + data.name + '</td>' +
+                    '<td>' + data.goods + '</td>';
+                $("#list").html(tbody);
+
+            }
+        })
+    })
+</script>
+
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+<!--
+    <style>
+        html
+        {
+            height: 100%;
+            width: 100%;
+            background-image: url("/penghai/img/penghai.jpg");
+            background-position: top;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        /*中间框居中*/
+        body
+        {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+        /*文字限制在中间框*/
+        #loginDiv {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 400px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+        }
+
+        input {
+            margin-left: 15px;
+            border-radius: 50px;
+            border-style: hidden;
+            height: 30px;
+            width: 200px;
+            background-color: gainsboro;
+            outline: none;
+            color: black;
+            padding-left: 10px;
+        }
+
+        .button {
+            background-color: cornflowerblue;
+            color: white;
+            border-style: hidden;
+            border-width: 1px;
+            height:30px;
+            width: 100px;
+            font-size: 10px;
+        }
+    </style>
+    -->
+    <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
+
+</head>
+<body>
+<div id="loginDiv">
+    <form action="/loginServlet" id="form" method="post">
+        <div style="text-align: center;margin-top: 30px;">
+            账号<input id="username" type="text" name="username" placeholder="请输入账号"><br>
+            <br>
+            密码<input id="password" type="password" name="password"  placeholder="请输入密码">
+        </div>
+        <div style="text-align: center; margin-top: 20px;">
+            <button type="submit" class="button" id="formLogin">form登录</button>
+            <button type="button" class="button" id="jsonLogin">json登录</button>
+        </div>
+    </form>
+</div>
+</body>
+<script type="text/javascript">
+    $(document).ready(function() {
+        document.getElementById("jsonLogin").onclick = function () {
+            var username = $("#username").val();
+            var password = $("#password").val();
+            $.ajax({
+                type: 'post',
+                dataType: 'json',
+                url: "/loginServlet",
+                data: JSON.stringify({"username": username, "password": password}),
+                contentType: 'application/json',
+                success: function (result) {
+                    if (result.key == 1) {
+                        alert(result.msg);
+                        window.location.href="/login/shopping.html";
+                    }else {
+                        alert(result.msg);
+
+                    }
+
+                }
+            })
+        }
+    })
+</script>
+</html>

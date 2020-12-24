@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<config>
+    <source_groups>
+        <source_group_824723b2-1b09-4195-9188-56f4bc2cf18e>
+            <java_standard>12</java_standard>
+            <name>Java Source Group</name>
+            <source_extensions>
+                <source_extension>.java</source_extension>
+            </source_extensions>
+            <status>enabled</status>
+            <type>Java Source Group</type>
+            <use_jre_system_library>1</use_jre_system_library>
+        </source_group_824723b2-1b09-4195-9188-56f4bc2cf18e>
+        <source_group_99553bed-d644-416b-910c-60493a3e04a6>
+            <java_standard>8</java_standard>
+            <name>Java Source Group</name>
+            <source_extensions>
+                <source_extension>.java</source_extension>
+            </source_extensions>
+            <source_paths>
+                <source_path>src/com/xr/Login.java</source_path>
+            </source_paths>
+            <status>enabled</status>
+            <type>Java Source Group</type>
+            <use_jre_system_library>1</use_jre_system_library>
+        </source_group_99553bed-d644-416b-910c-60493a3e04a6>
+    </source_groups>
+    <version>8</version>
+</config>
